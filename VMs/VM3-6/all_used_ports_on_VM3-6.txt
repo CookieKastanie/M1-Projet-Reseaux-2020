@@ -1,0 +1,7 @@
+State      Recv-Q Send-Q      Local Address:Port          Peer Address:Port   
+LISTEN     0      10                     :::echo                    :::*        users:(("inetutils-inetd",pid=10836,fd=4))
+LISTEN     0      128                    :::sunrpc                  :::*        users:(("rpcbind",pid=413,fd=11))
+LISTEN     0      50                     :::1234                    :::*        users:(("java",pid=30118,fd=4))
+LISTEN     0      128                    :::ssh                     :::*        users:(("sshd",pid=29689,fd=4))
+LISTEN     0      20                    ::1:smtp                    :::*        users:(("exim4",pid=29344,fd=5))
+LISTEN     0      128                    :::46554                   :::*        users:(("rpc.statd",pid=29575,fd=11))

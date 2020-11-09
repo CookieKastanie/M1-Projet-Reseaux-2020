@@ -1,0 +1,4 @@
+le nÂ° de la socket est :  3
+Essai de connexion Ã  fc00:1234:4::36 ( fc00:1234:4::36  ) sur le port  1234
+Erreur Connexion : [Errno 101] Network is unreachable
+
