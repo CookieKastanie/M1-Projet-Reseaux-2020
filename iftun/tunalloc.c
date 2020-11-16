@@ -19,7 +19,6 @@ int tun_alloc(char *dev)
     perror("alloc tun");
     exit(-1);
   }
-
   memset(&ifr, 0, sizeof(ifr));
 
   /* Flags: IFF_TUN   - TUN device (no Ethernet headers) 
@@ -36,7 +35,8 @@ int tun_alloc(char *dev)
   }
   strcpy(dev, ifr.ifr_name);
   return fd;
-}      
+}
+
 /*
 int main (int argc, char** argv){
   int tunfd;

@@ -33,17 +33,13 @@ eth2:
     - ipv6netmask: 64
 
 ## Configurating routes:
-#    to LAN2-6 & LAN4-6 via VM2-6 (eth1)
 routes:
   network.routes:
-    - name: eth1
+    - name: eth2
     - routes:
-      - name: LAN2-6
-        ipaddr: fc00:1234:2::/64
-        gateway: fc00:1234:1::26
       - name: LAN4-6
         ipaddr: fc00:1234:4::/64
-        gateway: fc00:1234:1::26
+        gateway: fc00:1234:3::1
 
 # IPV6  & IPV4 Forwarding:
 net.ipv4.ip_forward:
