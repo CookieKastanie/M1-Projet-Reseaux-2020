@@ -1,5 +1,5 @@
 CC = gcc
-DEFAULT_EXE = iftun
+DEFAULT_EXE = test_iftun
 DEFAULT_TUN_NAME = tun0
 ################################
 all: compile copyToVM1AndVM3

@@ -2,3 +2,8 @@
 2.2)
 	Q2) La route de VM1-6 allant vers VM2-6 doit maintenant
 	aller vers tun0 de VM1.
+
+	Q3 à Q5)
+	??? ping fait à partir de VM1 directement:
+	ping sur fc00:1234:ffff::1 ne fait rien
+	ping sur fc00:1234:ffff::10 affiche les requests dans wireshark.

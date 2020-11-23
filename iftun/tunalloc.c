@@ -20,12 +20,11 @@ int tun_alloc(char *dev)
     exit(-1);
   }
   memset(&ifr, 0, sizeof(ifr));
-
   /* Flags: IFF_TUN   - TUN device (no Ethernet headers) 
    *        IFF_TAP   - TAP device  
    *        IFF_NO_PI - Do not provide packet information  
    */ 
-  ifr.ifr_flags = IFF_TUN; 
+  ifr.ifr_flags = IFF_TUN | IFF_NO_PI;
   if( *dev )
     strncpy(ifr.ifr_name, dev, IFNAMSIZ);
 

@@ -5,4 +5,6 @@
 
 #define INTERFACE_NAME "tun0"
 
+void copyData( int src, int dst );
+
 #endif
