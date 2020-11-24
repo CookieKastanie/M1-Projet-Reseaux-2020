@@ -7,3 +7,8 @@
 	??? ping fait à partir de VM1 directement:
 	ping sur fc00:1234:ffff::1 ne fait rien
 	ping sur fc00:1234:ffff::10 affiche les requests dans wireshark.
+
+2.3)
+	Q4) Le flag IFF_NO_PI permet de seulement transporter des données brutes. Quand ce flag est levé, on supprime 4 octets qui se trouvaient devant les données brutes IPv6 transmises. On se retouve ainsi seulement avec le paquet IPv6 comme donnée lue.
+
+
