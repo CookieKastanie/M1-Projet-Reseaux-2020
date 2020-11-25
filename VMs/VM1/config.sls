@@ -1,3 +1,26 @@
+# Avoir acces à internet :
+dhclient eth0:
+  cmd:
+    - run
+## Installation de node :
+curl:
+  pkg:
+    - installed
+software-properties-common:
+  pkg:
+    - installed
+
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -:
+  cmd:
+    - run
+
+nodejs:
+  pkg:
+    - installed
+
+netcat6:
+  pkg:
+    - installed
 ## Désactivation de network-manager
 NetworkManager:
   service:

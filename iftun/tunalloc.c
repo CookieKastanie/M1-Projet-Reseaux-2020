@@ -17,7 +17,7 @@ int tun_alloc(char *dev)
 
   if( (fd = open("/dev/net/tun", O_RDWR)) < 0 ){
     perror("alloc tun");
-    exit(-1);
+    exit(2);
   }
   memset(&ifr, 0, sizeof(ifr));
   /* Flags: IFF_TUN   - TUN device (no Ethernet headers) 

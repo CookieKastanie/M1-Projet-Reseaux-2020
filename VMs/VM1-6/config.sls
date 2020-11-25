@@ -1,3 +1,12 @@
+# Avoir acces à internet :
+dhclient eth0:
+  cmd:
+    - run
+# Installation de netcat6
+netcat6:
+  pkg:
+    - installed
+
 ## Désactivation de network-manager
 NetworkManager:
   service:
@@ -35,7 +44,7 @@ eth2:
 ## Configurating routes:
 routes:
   network.routes:
-    - name: eth2
+    - name: eth1
     - routes:
       - name: LAN4-6
         ipaddr: fc00:1234:4::/64

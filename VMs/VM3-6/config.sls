@@ -1,22 +1,3 @@
-####### Enableing echo server:##############
-## Installation of inetutils-inetd:
-#inetutils-inetd:
-#  pkg:
-#    - installed
-## Activating echo service:
-#update-inetd --add "echostream tcp6 nowait nobody internal":
- # cmd:
-  # - run
-
-## Launch and restart service to make sure it's running:
-#service inetutils-inetd start:
- # cmd:
-  # - run
-#service inetutils-inetd restart:
- # cmd:
-  # - run
-############################################
-
 ## Désactivation de network-manager
 NetworkManager:
   service:

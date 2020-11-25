@@ -2,7 +2,7 @@ CC = gcc
 DEFAULT_EXE = test_iftun
 DEFAULT_TUN_NAME = tun0
 ################################
-all: compile copyToVM1AndVM3
+all: compile copyToPartage
 
 compile:
 	$(CC) iftun.c  iftun.h  tunalloc.c  tunalloc.h -o $(DEFAULT_EXE)
@@ -10,10 +10,8 @@ compile:
 tester_iftun:
 	./$(DEFAULT_EXE) tun0
 
-copyToVM1AndVM3:
-	cp $(DEFAULT_EXE) ../VMs/VM1/
-	cp $(DEFAULT_EXE) ../VMs/VM3/
-
+copyToPartage:
+	cp $(DEFAULT_EXE) ../VMs/partage/
 
 mrproper:
 	rm $(DEFAULT_EXE)
