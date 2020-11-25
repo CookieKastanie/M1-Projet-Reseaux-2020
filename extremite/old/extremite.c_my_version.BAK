@@ -26,16 +26,15 @@ void ext_out(){
 	char* port = DEFAULT_PORT;
 	int err;
 
-	//TODO : check if we need args.
-	
 printf(" INSIDE  ext_out() func.\n");
 	/* Resolution */
 	err = getaddrinfo(NULL,port,&indic,&resol);
 	if (err<0){
-		fprintf(stderr,"Résolution: %s\n",gai_strerror(err));
+		//fprintf(stderr,"Résolution: %s\n",gai_stsockaddr_in6rerror(err));
+		printf("ALED");
 		exit(2);
 	}
-	fprintf( stderr, "Resolution done.\n");
+	fprintf( stderr, "Resolution done. resol=%s, family=%d\n", resol, resol->ai_family);
 
 	/* Creating the SOCKET */
 	if ((sockfd=socket(resol->ai_family,resol->ai_socktype,resol->ai_protocol))<0){
@@ -43,8 +42,6 @@ printf(" INSIDE  ext_out() func.\n");
   	 	exit(3);
 	}
 	fprintf( stderr, "Socket created.\n" );
-
-	// TODO : Check if we need to make port reusable quickly
 
 	/* Binding socket to resolution */	
 	if (bind(sockfd,resol->ai_addr,sizeof(struct sockaddr_in))<0) {
@@ -59,6 +56,7 @@ printf(" INSIDE  ext_out() func.\n");
 		perror("Listen");
 		exit(6);
 	}
+
 	fprintf( stderr, "Socket ready to receive a client.\n" );
 	fprintf( stderr, "Waiting for a client ...\n" );
 	/* Wait for a connection to be done */
