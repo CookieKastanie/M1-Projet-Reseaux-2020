@@ -4,7 +4,10 @@
   "description": "",
   "main": "",
   "scripts": {
-    "start": "node main.js"
+    "server":"node server.js",
+    "client":"node client.js",
+    "tester_server":"",
+    "tester_client":""
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,17 @@
+{
+	"server_side":{
+		"port":123,
+		"command":{ 
+			"name":"ip",
+			"args": ["-6", "route", "add", "fc00:1234:4::/64", "dev", "tun0"]
+		}
+	},
+	"client_side":{
+		"host":"172.16.2.131",
+		"port":123,
+		"command":{ 
+			"name":"ip",
+			"args": ["-6", "route", "add", "fc00:1234:3::/64", "dev", "tun0"]
+		}
+	}
+}

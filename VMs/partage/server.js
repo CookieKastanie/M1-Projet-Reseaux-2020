@@ -1,29 +1,29 @@
 const net = require('net');
+const { server_side } = require('./config.json');
 
-if( process.argv.length == 3 ){
-	// host
-	const serverPort = parseInt( process.argv[2] );
-	const server = net.createServer(socket => {
-	    socket.on('connect', () => {
-	        const { spawn } = require('child_process');
-	        const tun0 = spawn('./test_iftun', ['tun0']);
-	            
-	        tun0.stdout.pipe(socket);
-	        socket.pipe(tun0.stdin);
-	    });
-	});
-	server.listen( serverPort );
-}else{
-	const remoteHost = process.argv[2];
-	const remotePort = parseInt( process.argv[3] );
+// Creating the server extremity (for VM1)
+console.log( 'Creating a server ...' );
 
-	// client
-	const client = new net.Socket();
-	client.connect(remotePort, remoteHost, () => {
-	    const { spawn } = require('child_process');
-	    const tun0 = spawn('./test_iftun', ['tun0']);
-	    
-	    tun0.stdout.pipe(client);
-	    client.pipe(tun0.stdin);
-	});
-}
+const serverPort = server_side.port;
+
+const server = net.createServer(socket => {
+	// Creating tun0:
+	console.log('\tCreating tun0 interface ...');
+    const { spawn } = require('child_process');
+    const tun0 = spawn('./test_iftun', ['tun0']);
+    console.log('\t\ttun0 created.');
+    
+    // Pinping inputs and ouputs:
+    tun0.stdout.pipe(socket);
+    socket.pipe(tun0.stdin);
+
+    // Adding routes related to tun0:
+    setTimeout( () => {
+    	spawn( server_side.command.name, server_side.command.args )
+   	}, 500);
+});
+server.on( "error", console.log );
+console.log(`\tMaking the server listen on ${serverPort}`);
+server.listen( serverPort );
+
+console.log('Server created.')
