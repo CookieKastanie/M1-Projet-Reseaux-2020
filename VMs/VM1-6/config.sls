@@ -44,7 +44,7 @@ eth2:
 ## Configurating routes:
 routes:
   network.routes:
-    - name: eth1
+    - name: eth2
     - routes:
       - name: LAN4-6
         ipaddr: fc00:1234:4::/64

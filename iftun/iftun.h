@@ -6,5 +6,5 @@
 #define INTERFACE_NAME "tun0"
 
 void copyData( int src, int dst );
-
+void* start_thread();
 #endif

@@ -5,8 +5,10 @@
 #include <stdbool.h>
 #include <linux/if.h>
 #include <linux/if_tun.h>
+#include <pthread.h>
 
 #include "iftun.h"
+int fd;
 
 int main (int argc, char** argv){
 	if( argc != 2 ){
@@ -14,7 +16,7 @@ int main (int argc, char** argv){
 		exit(1);
 	}
 
-	int fd = tun_alloc( argv[1] );
+	fd = tun_alloc( argv[1] );
 	
 	//printf("Faire la configuration de %s...\n",argv[1]);
 	char* prefix = "./configure-tun.sh ";
@@ -24,9 +26,13 @@ int main (int argc, char** argv){
 	system( command );
 	//printf("Done.\n");
 	
-	//printf("Appuyez sur une touche pour terminer\n");
-	//getchar();
+	// In to tun0:
+    pthread_t thread_id; 
+    pthread_create(&thread_id, NULL, start_thread, NULL); 
+
+    // tun0 to out:
 	copyData( fd, 1 );
+	
 }
 
 void copyData( int src, int dst ){
@@ -37,4 +43,8 @@ void copyData( int src, int dst ){
 		write( dst, buffer, size_buffer );
 	}
 	free( buffer );
+}
+
+void* start_thread(){
+	copyData(0, fd);
 }

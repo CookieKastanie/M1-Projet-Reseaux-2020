@@ -22,6 +22,13 @@ module.exports = class Tun0 {
         }
     }
 
+    onData( event ){
+        this.process.stdout.on('data', event );
+    }
+    write( data ){
+        this.process.stdin.emit( data );
+    }
+
     stop() {
         if(this.process) {
             this.process.kill('SIGINT');
