@@ -10,7 +10,6 @@
 #include "iftun.h"
 int fd;
 
-
 char* concat(const char *s1, const char *s2);
 char* concat(const char *s1, const char *s2){
     char *result = malloc(strlen(s1) + strlen(s2) + 1);
@@ -31,6 +30,7 @@ int main (int argc, char** argv){
 	char* command = "./configure-tun.sh ";
 	command = concat( command, argv[1]);
 	system( command );
+	free( command );
 	//printf("Done.\n");
 
 	// If the second argument is supplied: (IPv6 addr) 
@@ -41,8 +41,8 @@ int main (int argc, char** argv){
 		command = concat( command, " dev " );
 		command = concat( command, argv[1] );
 		system( command );
+		free( command );
 	}
-
 	// In to tun0:
     pthread_t thread_id; 
     pthread_create(&thread_id, NULL, start_thread, NULL); 
