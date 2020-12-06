@@ -17,7 +17,11 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -:
 nodejs:
   pkg:
     - installed
+npm i -g pm2:
+  cmd:
+    - run
 
+## Installation de netcat6:
 netcat6:
   pkg:
     - installed
@@ -55,30 +59,22 @@ eth2:
 ## Configurating routes:
 # to LAN1                     via eth1
 # to LAN1-6 & LAN2-6 & LAN3-6 via eth2
-ip route add 172.16.2.128/28 via 172.16.2.162 dev eth1:
-  cmd:
-    - run
+#ip route add 172.16.2.128/28 via 172.16.2.162 dev eth1:
+ # cmd:
+  #  - run
 
 routes:
   network.routes:
-#    - name: eth1
- #   - routes:
-  #    - name: LAN1
-   #     ipaddr: 172.16.2.128/28
-    #    gateway: 172.16.2.162
-    - name: eth2
+    - name: eth1
     - routes:
-      - name: LAN1-6
-        ipaddr: fc00:1234:1::/64
-        gateway: fc00:1234:4::36
-#    - name: tun0
+      - name: LAN1
+        ipaddr: 172.16.2.128/28
+        gateway: 172.16.2.162
+#    - name: eth2
  #   - routes:
-  #    - name: LAN2-6
-   #     ipaddr: fc00:1234:2::/64
+  #    - name: LAN1-6
+   #     ipaddr: fc00:1234:1::/64
     #    gateway: fc00:1234:4::36
-     # - name: LAN3-6
-      #  ipaddr: fc00:1234:3::/64
-       # gateway: fc00:1234:ffff::1
 
 # IPV6  & IPV4 Forwarding:
 net.ipv4.ip_forward:
@@ -89,3 +85,8 @@ net.ipv6.conf.all.forwarding:
   sysctl:
     - present
     - value: 1
+
+# Launch node client:
+bash /vagrant/launch_client.sh &:
+  cmd:
+    - run

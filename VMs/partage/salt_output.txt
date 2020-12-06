@@ -1,0 +1,240 @@
+local:
+----------
+          ID: dhclient eth0
+    Function: cmd.run
+      Result: True
+     Comment: Command "dhclient eth0" run
+     Started: 17:29:22.951563
+    Duration: 120.94 ms
+     Changes:   
+              ----------
+              pid:
+                  4336
+              retcode:
+                  0
+              stderr:
+                  RTNETLINK answers: File exists
+              stdout:
+----------
+          ID: curl
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 17:29:27.187808
+    Duration: 1514.1 ms
+     Changes:   
+----------
+          ID: software-properties-common
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 17:29:28.703384
+    Duration: 124.866 ms
+     Changes:   
+----------
+          ID: curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+    Function: cmd.run
+      Result: True
+     Comment: Command "curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -" run
+     Started: 17:29:28.832984
+    Duration: 17219.771 ms
+     Changes:   
+              ----------
+              pid:
+                  4363
+              retcode:
+                  0
+              stderr:
+              stdout:
+                  
+                  ## Installing the NodeSource Node.js 14.x repo...
+                  
+                  
+                  ## Populating apt-get cache...
+                  
+                  + apt-get update
+                  Hit http://security.debian.org jessie/updates InRelease
+                  Ign http://httpredir.debian.org jessie InRelease
+                  Hit http://repo.saltstack.com jessie InRelease
+                  Hit http://httpredir.debian.org jessie Release.gpg
+                  Hit http://httpredir.debian.org jessie Release
+                  Hit http://security.debian.org jessie/updates/main amd64 Packages
+                  Hit https://deb.nodesource.com jessie InRelease
+                  Hit http://security.debian.org jessie/updates/contrib amd64 Packages
+                  Hit http://repo.saltstack.com jessie/main amd64 Packages
+                  Hit http://httpredir.debian.org jessie/main amd64 Packages
+                  Hit http://httpredir.debian.org jessie/contrib amd64 Packages
+                  Hit https://deb.nodesource.com jessie/main Sources
+                  Hit https://deb.nodesource.com jessie/main amd64 Packages
+                  Reading package lists...
+                  
+                  ## You seem to be using Devuan version jessie.
+                  ## This maps to Debian "jessie"... Adjusting for you...
+                  
+                  ## Confirming "jessie" is supported...
+                  
+                  + curl -sLf -o /dev/null 'https://deb.nodesource.com/node_14.x/dists/jessie/Release'
+                  
+                  ## Adding the NodeSource signing key to your keyring...
+                  
+                  + curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+                  OK
+                  
+                  ## Creating apt sources list file for the NodeSource Node.js 14.x repo...
+                  
+                  + echo 'deb https://deb.nodesource.com/node_14.x jessie main' > /etc/apt/sources.list.d/nodesource.list
+                  + echo 'deb-src https://deb.nodesource.com/node_14.x jessie main' >> /etc/apt/sources.list.d/nodesource.list
+                  
+                  ## Running `apt-get update` for you...
+                  
+                  + apt-get update
+                  Hit http://security.debian.org jessie/updates InRelease
+                  Ign http://httpredir.debian.org jessie InRelease
+                  Hit http://repo.saltstack.com jessie InRelease
+                  Hit http://httpredir.debian.org jessie Release.gpg
+                  Hit http://httpredir.debian.org jessie Release
+                  Hit https://deb.nodesource.com jessie InRelease
+                  Hit http://security.debian.org jessie/updates/main amd64 Packages
+                  Hit http://security.debian.org jessie/updates/contrib amd64 Packages
+                  Hit http://repo.saltstack.com jessie/main amd64 Packages
+                  Hit http://httpredir.debian.org jessie/main amd64 Packages
+                  Hit http://httpredir.debian.org jessie/contrib amd64 Packages
+                  Hit https://deb.nodesource.com jessie/main Sources
+                  Hit https://deb.nodesource.com jessie/main amd64 Packages
+                  Reading package lists...
+                  
+                  ## Run `sudo apt-get install -y nodejs` to install Node.js 14.x and npm
+                  ## You may also need development tools to build native addons:
+                       sudo apt-get install gcc g++ make
+                  ## To install the Yarn package manager, run:
+                       curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+                       echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+                       sudo apt-get update && sudo apt-get install yarn
+----------
+          ID: nodejs
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 17:29:46.054363
+    Duration: 136.245 ms
+     Changes:   
+----------
+          ID: npm i -g pm2
+    Function: cmd.run
+      Result: True
+     Comment: Command "npm i -g pm2" run
+     Started: 17:29:46.191497
+    Duration: 20607.951 ms
+     Changes:   
+              ----------
+              pid:
+                  4452
+              retcode:
+                  0
+              stderr:
+                  npm WARN deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+                  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules/pm2/node_modules/chokidar/node_modules/fsevents):
+                  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+              stdout:
+                  /usr/bin/pm2 -> /usr/lib/node_modules/pm2/bin/pm2
+                  /usr/bin/pm2-dev -> /usr/lib/node_modules/pm2/bin/pm2-dev
+                  /usr/bin/pm2-docker -> /usr/lib/node_modules/pm2/bin/pm2-docker
+                  /usr/bin/pm2-runtime -> /usr/lib/node_modules/pm2/bin/pm2-runtime
+                  + pm2@4.5.0
+                  updated 1 package in 18.613s
+----------
+          ID: netcat6
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 17:30:06.800425
+    Duration: 130.573 ms
+     Changes:   
+----------
+          ID: NetworkManager
+    Function: service.dead
+      Result: True
+     Comment: The service NetworkManager is already dead
+     Started: 17:30:06.935649
+    Duration: 263.849 ms
+     Changes:   
+----------
+          ID: ip route del default
+    Function: cmd.run
+      Result: True
+     Comment: Command "ip route del default" run
+     Started: 17:30:07.201421
+    Duration: 66.803 ms
+     Changes:   
+              ----------
+              pid:
+                  4467
+              retcode:
+                  0
+              stderr:
+              stdout:
+----------
+          ID: eth1
+    Function: network.managed
+      Result: True
+     Comment: Interface eth1 is up to date.
+     Started: 17:30:07.273881
+    Duration: 399.027 ms
+     Changes:   
+----------
+          ID: eth2
+    Function: network.managed
+      Result: True
+     Comment: Interface eth2 is up to date.
+     Started: 17:30:07.674606
+    Duration: 105.299 ms
+     Changes:   
+----------
+          ID: routes
+    Function: network.routes
+        Name: eth1
+      Result: True
+     Comment: Interface eth1 routes are up to date.
+     Started: 17:30:07.782017
+    Duration: 59.719 ms
+     Changes:   
+----------
+          ID: net.ipv4.ip_forward
+    Function: sysctl.present
+      Result: True
+     Comment: Sysctl value net.ipv4.ip_forward = 1 is already set
+     Started: 17:30:07.847269
+    Duration: 64.539 ms
+     Changes:   
+----------
+          ID: net.ipv6.conf.all.forwarding
+    Function: sysctl.present
+      Result: True
+     Comment: Sysctl value net.ipv6.conf.all.forwarding = 1 is already set
+     Started: 17:30:07.913364
+    Duration: 65.514 ms
+     Changes:   
+----------
+          ID: bash /vagrant/launch_server.sh
+    Function: cmd.run
+      Result: False
+     Comment: Command "bash /vagrant/launch_server.sh" run
+     Started: 17:30:07.980543
+    Duration: 1622.245 ms
+     Changes:   
+              ----------
+              pid:
+                  4478
+              retcode:
+                  1
+              stderr:
+                  [PM2][ERROR] Script already launched, add -f option to force re-execution
+              stdout:
+
+Summary for local
+-------------
+Succeeded: 14 (changed=5)
+Failed:     1
+-------------
+Total states run:     15
+Total run time:   42.501 s

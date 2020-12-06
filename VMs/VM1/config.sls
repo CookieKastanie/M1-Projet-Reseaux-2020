@@ -2,6 +2,7 @@
 dhclient eth0:
   cmd:
     - run
+
 ## Installation de node :
 curl:
   pkg:
@@ -17,10 +18,15 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -:
 nodejs:
   pkg:
     - installed
+npm i -g pm2:
+  cmd:
+    - run
 
+## Installation de netcat6:
 netcat6:
   pkg:
     - installed
+
 ## Désactivation de network-manager
 NetworkManager:
   service:
@@ -54,9 +60,9 @@ eth2:
 ## Configurating routes:
 #   to LAN2                     via VM2   (eth1)
 #   to LAN1-6 & LAN2-6 & LAN4-6 via VM1-6 (eth2)
-ip route add 172.16.2.160/28 via 172.16.2.132 dev eth1:
-  cmd:
-    - run
+#ip route add 172.16.2.160/28 via 172.16.2.132 dev eth1:
+ # cmd:
+  #  - run
 
 routes:
   network.routes:
@@ -65,19 +71,11 @@ routes:
       - name: LAN2
         ipaddr: 172.16.2.160/28
         gateway: 172.16.2.132
-    - name: eth2
-    - routes:
-      - name: LAN1-6
-        ipaddr: fc00:1234:1::/64
-        gateway: fc00:1234:3::16
-#    - name: tun0
+#    - name: eth2
  #   - routes:
-  #    - name: LAN2-6
-   #     ipaddr: fc00:1234:2::/64
-    #    gateway: fc00:1234:ffff::1
-     # - name: LAN4-6
-      #  ipaddr: fc00:1234:4::/64
-       # gateway: fc00:1234:ffff::1
+  #    - name: LAN1-6
+   #     ipaddr: fc00:1234:1::/64
+    #    gateway: fc00:1234:3::16
  
 # IPV6  & IPV4 Forwarding:
 net.ipv4.ip_forward:
@@ -88,3 +86,8 @@ net.ipv6.conf.all.forwarding:
   sysctl:
     - present
     - value: 1
+
+# Launch node server:
+bash /vagrant/launch_server.sh:
+  cmd:
+    - run
