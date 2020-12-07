@@ -3,7 +3,7 @@ Dans ce projet nous considérons tout d'abord le réseaux suivant:
 
 ![Reseaux initial](./Images/reseau_initial.png)
 
-Malheureusement la machine **VM2-6** est sujette à des disfonctionnement. Nous devons donc ainsi dans ce projet faire en sorte que VM1-6 et VM3-6 puissent communiquer. Mais n'ayant pas de chemin IPv6 stricte entre les deux machines nous devrons transiter par notre ilot IPv4:
+Malheureusement la machine **VM2-6** est sujette à des disfonctionnements. Nous devons donc ainsi dans ce projet faire en sorte que VM1-6 et VM3-6 puissent communiquer. Mais n'ayant pas de chemin IPv6 stricte entre les deux machines nous devrons transiter par notre ilot IPv4:
 
 ![Reseaux initial](./Images/reseau_projet.png)
 
@@ -20,8 +20,8 @@ Le but de ce projet est donc de créer, suite à la disparition de VM2-6, un tun
                               dans /VMs/partage un executable de iftun (à l’aide de la commande “make”)}
 
     [ VMs/ ]
-        [ VM1/ à VM3-6/ ]                            { Répertoire des machines virtuelles du projet }
-            [ Les fichiers salt ] {Permet une configuration automatique des machines à leur lacement }
+        [ VM1/ à VM3-6/ ]                            { Répertoires des machines virtuelles du projet }
+            [ Les fichiers salt ] {Permet une configuration automatique des machines à leurs lacement }
             [ Vagrantfile ]                          { Permet le lancement d’une machine }
             [ POUR VM1 UNIQUEMENT launch_server.sh ] { Lance l’extremité serveur du tunnel IPv6 sur IPv4 }
             [ POUR VM3 UNIQUEMENT launch_client.sh ] { Lance l’extremité client du tunnel IPv6 sur IPv4 }
@@ -45,21 +45,21 @@ Notre projet se base donc sur la box **debianTP.box**.
 ## Lancement des machines (Setup):
 Vous pouvez, pour lancer les machines utiliser le script [/VMs/launch_all_VMs.sh].
 
-**Attention!!! ce script lance en parrallèle toutes les machines, assurez vous d'avoir les ressources nécessaires à leurs lancement (~ 8Gb de RAM de préférence).**
+**Attention!!! ce script lance en parallèle toutes les machines, assurez-vous d'avoir les ressources nécessaires à leurs lancements (~ 8Gb de RAM de préférence).**
 
 Une fois lancées, et pour chaque machine, vous devez vous octroyer les droits root, executez: 
 
 `$ sudo -s` (le mot de passe est "m1reseaux" si vous utilisez bien la box **debianTP.box**.)
 
-Par la suite nous utiliserons salt afin de configurer automatiquement les machines. Deplacez vous donc dans le répertoire **/mnt/partage/** de la VM:
+Par la suite nous utiliserons salt afin de configurer automatiquement les machines. Déplacez vous donc dans le répertoire **/mnt/partage/** de la VM:
 
 `# cd /mnt/partage/`
 
-Et executez le script qui ce chargera de lancer salt pour vous:
+Et exécutez le script qui se chargera de lancer salt pour vous:
 
 `# ./launch_salt.sh`
 
-Votre machine, une fois la commande ci-dessus terminée, est configurée vous pouvez dès à présent utiliser le reseaux de VMs.
+Votre machine (une fois la commande ci-dessus terminée) est configurée, vous pouvez dès à présent utiliser le réseaux de VMs.
 
 ## Contact:
 Ce projet à été réalisé par:
