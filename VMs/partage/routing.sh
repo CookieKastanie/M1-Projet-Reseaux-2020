@@ -1,4 +1,4 @@
-olors #######################
+#######################
 RED=`tput bold && tput setaf 1`
 GREEN=`tput bold && tput setaf 2`
 YELLOW=`tput bold && tput setaf 3`
