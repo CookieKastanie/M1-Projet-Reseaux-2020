@@ -38,12 +38,9 @@ routes:
   network.routes:
     - name: eth1
     - routes:
-      - name: LAN1-6
-        ipaddr: fc00:1234:1::/64
-        gateway: fc00:1234:2::26
       - name: LAN3-6
         ipaddr: fc00:1234:3::/64
-        gateway: fc00:1234:2::26
+        gateway: fc00:1234:4::3
 
 # IPV6  & IPV4 Forwarding:
 net.ipv4.ip_forward:
